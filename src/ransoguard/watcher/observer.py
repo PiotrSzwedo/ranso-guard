@@ -1,10 +1,11 @@
 from watchdog.observers import Observer
+from watcher.handlers import EventHandler
 
 
 class DirectoryObserver(Observer):
     def __init__(self, event_handler, path_to_observe):
         super().__init__()
-        self.event_handler = event_handler
+        self.event_handler: EventHandler = event_handler
         self.path_to_observe = path_to_observe
 
     def observer_start(self):

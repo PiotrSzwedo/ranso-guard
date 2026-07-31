@@ -10,3 +10,12 @@ class EventHandler(PatternMatchingEventHandler):
 
     def on_created(self, event: DirCreatedEvent | FileCreatedEvent) -> None:
         pass
+
+    def on_deleted(self, event: DirDeletedEvent | FileDeletedEvent) -> None:
+        pass
+
+    def on_modified(self, event: DirModifiedEvent | FileModifiedEvent) -> None:
+        pass
+
+    def on_moved(self, event: DirMovedEvent | FileMovedEvent) -> None:
+        pass
