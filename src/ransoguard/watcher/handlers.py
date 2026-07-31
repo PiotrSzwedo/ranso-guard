@@ -1,8 +1,9 @@
-from watchdog.events import FileSystemEventHandler, DirCreatedEvent, FileCreatedEvent
+from watchdog.events import DirCreatedEvent, FileCreatedEvent, DirDeletedEvent, FileDeletedEvent, DirModifiedEvent, FileModifiedEvent, DirMovedEvent, FileMovedEvent, PatternMatchingEventHandler
+from action_handler import ActionHandler
 
 
-class EventHandler(FileSystemEventHandler):
-    def __init__(self, ignore_patterns: list[str]):
+class EventHandler(PatternMatchingEventHandler):
+    def __init__(self, ignore_patterns: list[str], actions: ActionHandler):
         super().__init__(
             ignore_patterns=ignore_patterns
         )
