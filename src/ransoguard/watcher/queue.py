@@ -1,10 +1,10 @@
 import threading
-from queue import Queue, _T
+from queue import Queue
 from pathlib import Path
 
 class FileQueue:
     def __init__(self):
-        self._queue = Queue()
+        self._queue: Queue = Queue()
         self._modification_counts = {}
         self._lock = threading.Lock()
 
@@ -18,7 +18,7 @@ class FileQueue:
         self._queue.put(file_path)
         return count
 
-    def get(self) -> _T:
+    def get(self):
         return self._queue.get()
 
     def task_done(self):
